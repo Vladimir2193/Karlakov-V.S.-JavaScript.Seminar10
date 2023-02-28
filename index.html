@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seminar 10</title>
+</head>
+
+<body>
+
+    <div class="main-content-box"></div>
+
+    <script src="./data.js"></script>
+    <script>
+        // Задание 1
+        // 1. Поиск в интернете(бесплатные api примеры).
+        // 2. Найти любые данные, на произвольную тему.
+        // 3. Создать файл data.js.
+        // 4. Создать переменную которая будет хранить данные из публичных api.
+
+        const userData = JSON.parse(userJsonData);
+        console.log(userData);
+
+        // Задание 2
+        // 1. Создать файл index.html.
+        // 2. Подключить data.js.
+        // 3. Сформировать контент из данных(картинка загловок и параграф).
+        // 4. Добавить данный контент в вёрстку.
+        // 5. * Добавить стили при необходимости(по желанию).
+
+        const mainContentBox = document.querySelector('.main-content-box');
+        const contentEl = document.createElement('div');
+        mainContentBox.appendChild(contentEl);
+        contentEl.classList.add('content_block');
+        const imageEl = document.createElement('img');
+        imageEl.alt = 'photo.jpg';
+        imageEl.src = 'https://chessrussian.ru/upload/iblock/420/420bba0cf9da32102aed1a62da63447e.jpg';
+        contentEl.appendChild(imageEl);
+        const titleEl = document.createElement('h2');
+        titleEl.textContent = 'Заголовок для сформировнного контента';
+        contentEl.appendChild(titleEl);
+        const paragraphEl = document.createElement('p');
+        paragraphEl.textContent = 'Ша́хматы — настольная логическая игра с шахматными фигурами на 64 - клеточной доске, сочетающая в себе элементы искусства,'+
+        'науки и спорта.В шахматы обычно играют два игрока друг против друга.'+
+        'Правила игры в основном сложились к XV веку; в современных официальных турнирах применяются правила Международной шахматной федерации,'+
+        'которыми регламентируются не только передвижение фигур, но и права судьи, правила поведения игроков и контроль времени.'+
+        'Игра, осуществляемая дистанционно — например, по переписке, по телефону или через Интернет — имеет особые правила.'+
+        'Существует множество вариантов шахмат, отличающихся от классических: с нестандартными правилами, фигурами, размерами доски и т. п.'+
+        'Соответствующий раздел шахматной композиции — сказочные шахматы. Некоторые аспекты шахматной игры изучаются в математике'+
+        '(например, классические «Задача о ходе коня» и «Задача о восьми ферзях»), в том числе при помощи компьютерного моделирования.'
+        contentEl.appendChild(paragraphEl);
+        
+        const titleEl2 = document.createElement('h2');
+        titleEl2.textContent = `${userData.second.title}`;
+        contentEl.appendChild(titleEl2);
+        
+        const paragraphEl2 = document.createElement('p');
+        paragraphEl2.textContent = `${userData.first.paragraph}`;
+        contentEl.appendChild(paragraphEl2);
+        
+        const imagesEl2 = document.createElement('img');
+        imagesEl2.src = `${userData.first.images}`;
+        imagesEl2.alt = 'photo2.jpg';
+        contentEl.appendChild(imagesEl2);
+        contentEl.insertBefore(imagesEl2, titleEl2);
+
+    
+    </script>
+
+</body>
+
+</html>
